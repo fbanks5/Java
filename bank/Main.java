@@ -1,6 +1,6 @@
 package bank;
 
-import appetizers.Account;
+import structure.Account;
 
 public class Main {
     public static void main(String[] args) {

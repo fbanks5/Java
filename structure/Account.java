@@ -1,4 +1,4 @@
-package appetizers;
+package structure;
 
 public class Account {
     private String owner;

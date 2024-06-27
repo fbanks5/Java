@@ -1,4 +1,4 @@
-package appetizers;
+package structure;
 
 import java.time.LocalDate;
 
