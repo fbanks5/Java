@@ -22,14 +22,17 @@ public class ExampleOperators {
         // assignment operators
         int nr3 = 7;
         int nr4 = 70;
-        nr3 += nr4;
+        nr3 += nr4; // nr3 = nr3 + nr4
+        nr3 -= nr4;
+        nr3 *= nr4;
+        nr3 /= nr4;
         System.out.println(nr3);
 
         // unary operators
         int nr5 = 8;
-        nr5++;
+        nr5++; // increment nr5 by 1
         int nr6 = 9;
-        nr6--;
+        nr6--; // decrement nr6 by 1
         System.out.println(nr5);
         System.out.println(nr6);
 

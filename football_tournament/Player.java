@@ -5,5 +5,4 @@ public class Player {
     public int age;
     public String position;
     public Team team;
-    }
-
+}
