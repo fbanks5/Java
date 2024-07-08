@@ -1,10 +1,10 @@
-package exercises.PrimitivesandObjectsExercise;
+package exercises.PassObjectToMethod;
 
 public class Main {
     public static void main(String[] args) {
         Person person = new Person();
-        person.name = "John";
-        person.age = 25;
+        person.name = "Harold";
+        person.age = 56;
         System.out.println("Before: " + person.name + ", " + person.age);
         modifyPerson(person);
         System.out.println("After: " + person.name + ", " + person.age);
@@ -15,4 +15,3 @@ public class Main {
         p.age = 30;
     }
 }
-
