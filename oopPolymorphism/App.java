@@ -2,15 +2,19 @@ package oopPolymorphism;
 
 public class App {
     public static void main(String[] args) {
-        Animal dog = new Dog();
+        Dog dog = new Dog();
         Cat cat = new Cat();
 
 
 //        dog = new Cat();
 
         dog.eat();
+        dog.eat("meat");
         cat.eat();
-        ((Dog)dog).bark();
+
+        System.out.println(Dog.type);
+        System.out.println(Cat.type);
+
 
 
 

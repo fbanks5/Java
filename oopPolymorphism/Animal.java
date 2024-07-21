@@ -1,6 +1,7 @@
 package oopPolymorphism;
 
 public class Animal {
+    public static String type = "Animal";
     private String name;
     private int age;
     private int nrOfEyes;
