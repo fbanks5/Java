@@ -1,16 +1,23 @@
 package constructors;
 
-public class Student {
+public class Student extends Person {
     private String name;
     private int age;
+    private String studentNr;
 
-    public String getName() {
-        return name;
+    public Student(String name, int age) {
+//        super(name);
+        this(name, age, "1234");
+//        this.age = age;
     }
 
-    public String setName(String name) {
-        return this.name = name;
+    public Student(String name, int age, String studentNr) {
+        super(name);
+        this.age = age;
+        this.studentNr = studentNr;
+
     }
+
 
     public int getAge() {
         return age;
