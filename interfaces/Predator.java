@@ -5,6 +5,9 @@ public interface Predator {
 
     default void eat(Prey p) {
         System.out.println("Eating" + p.getClass().getName());
+    }
 
+    default void run() {
+        System.out.println("Running after a prey");
     }
 }
