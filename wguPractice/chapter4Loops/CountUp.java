@@ -1,4 +1,4 @@
-package wguPractice;
+package wguPractice.chapter4Loops;
 
 import java.util.Scanner;
 

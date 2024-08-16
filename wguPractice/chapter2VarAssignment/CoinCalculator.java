@@ -1,4 +1,4 @@
-package wguPractice;
+package wguPractice.chapter2VarAssignment;
 
 import java.util.Scanner;
 

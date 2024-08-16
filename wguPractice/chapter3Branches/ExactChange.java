@@ -1,4 +1,4 @@
-package wguPractice;
+package wguPractice.chapter3Branches;
 
 import java.util.Scanner;
 
