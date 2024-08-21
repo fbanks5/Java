@@ -1,4 +1,4 @@
-package wguPractice;
+package wguPractice.chapter4Loops;
 
 public class Loop {
     public static void main(String[] args) {
