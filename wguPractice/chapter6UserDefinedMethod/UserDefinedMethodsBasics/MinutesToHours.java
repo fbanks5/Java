@@ -1,4 +1,4 @@
-package wguPractice.chapter6UserDefinedMethod;
+package wguPractice.chapter6UserDefinedMethod.UserDefinedMethodsBasics;
 
 import java.util.Scanner;
 

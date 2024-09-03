@@ -1,4 +1,4 @@
-package wguPractice.chapter6UserDefinedMethod.PizzaExamples;
+package wguPractice.chapter6UserDefinedMethod.UserDefinedMethodsBasics.PizzaExamples;
 
 public class PizzaVolume {
     public static double calcPizzaVolume(double pizzaDiameter, double pizzaHeight) {

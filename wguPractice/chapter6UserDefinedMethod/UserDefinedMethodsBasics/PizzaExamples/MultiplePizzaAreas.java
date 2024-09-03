@@ -1,4 +1,4 @@
-package wguPractice.chapter6UserDefinedMethod.PizzaExamples;
+package wguPractice.chapter6UserDefinedMethod.UserDefinedMethodsBasics.PizzaExamples;
 
 public class MultiplePizzaAreas {
     public static double calcPizzaArea(double pizzaDiameter) {
