@@ -27,7 +27,9 @@ public class SwapFirstAndLast {
 
         for (i = 0; i < sortArray.length; ++i) {
             System.out.print(sortArray[i]);
-            System.out.print(" ");
+            if (i < sortArray.length - 1) {
+                System.out.print(" ");
+            }
         }
         System.out.println("");
     }

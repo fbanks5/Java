@@ -7,10 +7,11 @@ public class DomainValidation {
     // ***********************************************************************
 
     /**
-     getPeriodPosition - Get the position of a single period in a string.
-     @param   stringToSearch - The string to search for periods
-     @return  N >=0, the position of the single period in the string
-     N < 0, there were no periods, or two or more periods
+     * getPeriodPosition - Get the position of a single period in a string.
+     *
+     * @param stringToSearch - The string to search for periods
+     * @return N >=0, the position of the single period in the string
+     * N < 0, there were no periods, or two or more periods
      */
 
     public static int getPeriodPosition(String stringToSearch) {
@@ -40,16 +41,17 @@ public class DomainValidation {
     // ***********************************************************************
 
     /**
-     hasValidSecondLevel  - Checks if the second level domain part is valid
-     @param   secondLevel - The candidate second-level domain
-     @return  true  - The second-level domain is valid
-     false - The second-level domain is not valid
-
-     A valid second-level domain:
-
-     1. Is between 1 and 63 characters long
-     2. Contains only upper- and lower-case letters, digits 0-9 and the dash
-     3. Cannot begin or end with a dash
+     * hasValidSecondLevel  - Checks if the second level domain part is valid
+     *
+     * @param secondLevel - The candidate second-level domain
+     * @return true  - The second-level domain is valid
+     * false - The second-level domain is not valid
+     * <p>
+     * A valid second-level domain:
+     * <p>
+     * 1. Is between 1 and 63 characters long
+     * 2. Contains only upper- and lower-case letters, digits 0-9 and the dash
+     * 3. Cannot begin or end with a dash
      */
 
     public static boolean hasValidSecondLevel(String secondLevel) {
@@ -71,8 +73,7 @@ public class DomainValidation {
             if ((secondLevel.charAt(0) == DASH) || (secondLevel.charAt(secondLevelLength - 1) == DASH)) {
                 isValidSecondLevel = false;
             }
-        }
-        else {
+        } else {
             isValidSecondLevel = false;
         }
 
@@ -81,8 +82,7 @@ public class DomainValidation {
         i = 0;
         while ((i < secondLevelLength) && (isValidSecondLevel)) {
             nextChar = secondLevel.charAt(i);
-            if ((!Character.isLetterOrDigit(nextChar)) &&
-                    (nextChar != DASH)) {
+            if ((!Character.isLetterOrDigit(nextChar)) && (nextChar != DASH)) {
                 isValidSecondLevel = false;
             }
             ++i;
@@ -94,13 +94,14 @@ public class DomainValidation {
     // ***********************************************************************
 
     /**
-     hasValidTld - Checks if the top-level domain part is valid
-     @param   theTld - The candidate top-level domain
-     @return  true   - The top-level domain is valid
-     false  - The top-level domain is not valid
-
-     A valid top-level domain begins with a period and then contains only
-     upper- and lower-case letters, or digits 0-9.
+     * hasValidTld - Checks if the top-level domain part is valid
+     *
+     * @param theTld - The candidate top-level domain
+     * @return true   - The top-level domain is valid
+     * false  - The top-level domain is not valid
+     * <p>
+     * A valid top-level domain begins with a period and then contains only
+     * upper- and lower-case letters, or digits 0-9.
      */
 
     public static boolean hasValidTld(String theTld) {
@@ -116,8 +117,7 @@ public class DomainValidation {
         // Disqualify the top-level domain if it is the empty string or
         // the first character is not a period
 
-        if ((topLevelLength <= 0) ||
-                (theTld.charAt(0) != '.')) {
+        if ((topLevelLength <= 0) || (theTld.charAt(0) != '.')) {
             isValidTopLevel = false;
         }
 
@@ -138,15 +138,15 @@ public class DomainValidation {
     // ***********************************************************************
 
     /**
-     isSpecialGtld - Checks if the TLD part is a special gTLD
-     @param   specialGtld - An array of valid special gTLD names
-     @param   tld   - A candidate top-level domain name
-     @return  true  - The TLD is a special gTLD
-     false - The TLD is not a special gTLD
-
+     * isSpecialGtld - Checks if the TLD part is a special gTLD
+     *
+     * @param specialGtld - An array of valid special gTLD names
+     * @param tld         - A candidate top-level domain name
+     * @return true  - The TLD is a special gTLD
+     * false - The TLD is not a special gTLD
      */
 
-    public static boolean isSpecialGtld(String [] specialGtld, String tld) {
+    public static boolean isSpecialGtld(String[] specialGtld, String tld) {
         boolean isSpecial;
         int i;
 
@@ -156,8 +156,7 @@ public class DomainValidation {
         while ((i < specialGtld.length) && (!isSpecial)) {
             if (specialGtld[i].equals(tld)) {
                 isSpecial = true;
-            }
-            else {
+            } else {
                 ++i;
             }
         }
@@ -167,114 +166,107 @@ public class DomainValidation {
     // ***********************************************************************
 
     /**
-     FIXME: Write a method getString with the following specifications:
-     getString - Prompts for an input string from the user
-     @param   input  - the source of the input (a Scanner object)
-     @param   prompt - the prompt to show the user
-     @return  The string entered by the user (which could be empty)
+     * FIXME: Write a method getString with the following specifications:
+     * getString - Prompts for an input string from the user
+     *
+     * @param input  - the source of the input (a Scanner object)
+     * @param prompt - the prompt to show the user
+     * @return The string entered by the user (which could be empty)
      */
 
-    // FIXME: Insert the getString method here
+    public static String getString(Scanner input, String prompt) {
+        String inputValue;
 
-    // ***********************************************************************
+        System.out.println(prompt);
+        inputValue = input.nextLine();
 
-    public static void main (String [] args) {
-        final String PROMPT_DOMAIN_NAME = "\nEnter the next domain name (Enter to exit): ";
-        Scanner scnr = new Scanner(System.in);
+        return inputValue;
+    }
 
-        // Define the list of valid core gTLDs and restricted gTLDs
-        String [] validCoreGtld = { ".com", ".net", ".org", ".info" };
-        String [] validRestrictedGtld = { ".biz", ".name", ".pro" };
-        String inputName;
-        String searchName;
-        String secondLevel;        // In aaa.bbb, the aaa part, aka second-level domain
-        String theTld;             // In aaa.bbb, the bbb part, aka top-level domain
-        int periodPosition;
-        boolean isCoreGtld;
-        boolean isPeriodPositionValid;
-        boolean isRestrictedGtld;
-        boolean isDomainValid;
+        // ***********************************************************************
 
-        int i;
+public static void main (String[]args){
+final String PROMPT_DOMAIN_NAME = "\nEnter the next domain name (Enter to exit): ";
+Scanner scnr = new Scanner(System.in);
 
-        theTld = "";
-        isCoreGtld = false;
+// Define the list of valid core gTLDs and restricted gTLDs
+String[] validCoreGtld = {".com", ".net", ".org", ".info"};
+String[] validRestrictedGtld = {".biz", ".name", ".pro"};
+String inputName;
+String searchName;
+String secondLevel;        // In aaa.bbb, the aaa part, aka second-level domain
+String theTld;             // In aaa.bbb, the bbb part, aka top-level domain
+int periodPosition;
+boolean isCoreGtld;
+boolean isPeriodPositionValid;
+boolean isRestrictedGtld;
+boolean isDomainValid;
+
+int i;
+
+theTld = "";
+isCoreGtld = false;
+isPeriodPositionValid = false;
+isRestrictedGtld = false;
+isDomainValid = false;
+
+// Get the first domain name to process
+inputName = getString(scnr, PROMPT_DOMAIN_NAME);
+
+System.out.println(PROMPT_DOMAIN_NAME);
+inputName = scnr.nextLine();
+
+while (inputName.length() > 0) {
+    searchName = inputName.toLowerCase();
+    isCoreGtld = false;
+    isDomainValid = false;
+    periodPosition = getPeriodPosition(searchName);
+    isPeriodPositionValid = (periodPosition >= 1);
+
+    // The domain name is valid if there is exactly one period in the
+    // domain name (at location periodPosition) and the domain name does
+    // not start or end with a period. Note that a period position of 0 means
+    // the first character is a period, rendering the domain name invalid
+    if ((periodPosition > 0) && (searchName.charAt(searchName.length() - 1) != '.')) {
+        isPeriodPositionValid = true;
+    } else {
         isPeriodPositionValid = false;
-        isRestrictedGtld = false;
-        isDomainValid = false;
+    }
+    if (isPeriodPositionValid) {
 
-        // Get the first domain name to process
-        // FIXME: Rewrite the prompt for an input of the next domain
-        //        name as a call to a method named getString. The method
-        //        has parameters Scanner for the input source and a String
-        //        prompt to display to the user.
-        System.out.println(PROMPT_DOMAIN_NAME);
-        inputName = scnr.nextLine();
+        // Extract the second-level domain and the top-level domain
+        secondLevel = searchName.substring(0, periodPosition);
+        theTld = searchName.substring(periodPosition);
+        isDomainValid = hasValidSecondLevel(secondLevel) && hasValidTld(theTld);
 
-        while (inputName.length() > 0) {
-            searchName     = inputName.toLowerCase();
-            isCoreGtld     = false;
-            isDomainValid  = false;
-            periodPosition = getPeriodPosition(searchName);
-            isPeriodPositionValid = (periodPosition >= 1);
-
-            // The domain name is valid if there is exactly one period in the
-            // domain name (at location periodPosition) and the domain name does
-            // not start or end with a period. Note that a period position of 0 means
-            // the first character is a period, rendering the domain name invalid
-            if ((periodPosition > 0) &&
-                    (searchName.charAt(searchName.length() - 1) != '.')) {
-                isPeriodPositionValid = true;
+        // If the domain name is valid see if there is a core gTLD
+        // or a restricted gTLD
+        if (isDomainValid) {
+            isCoreGtld = isSpecialGtld(validCoreGtld, theTld);
+            if (!isCoreGtld) {
+                isRestrictedGtld = isSpecialGtld(validRestrictedGtld, theTld);
             }
-            else {
-                isPeriodPositionValid = false;
-            }
-            if (isPeriodPositionValid) {
+        }
+    }
 
-                // Extract the second-level domain and the top-level domain
-                secondLevel   = searchName.substring(0, periodPosition);
-                theTld        = searchName.substring(periodPosition);
-                isDomainValid = hasValidSecondLevel(secondLevel) &&
-                        hasValidTld(theTld);
+    // Display the results
+    System.out.print("\"" + inputName + "\" ");
+    if (isDomainValid) {
+        System.out.print("is a valid domain name and ");
+        if (isCoreGtld) {
+            System.out.println("has a core gTLD of \"" + theTld + "\".");
+        } else if (isRestrictedGtld) {
+            System.out.println("has a restricted gTLD of \"" + theTld + "\".");
+        } else {
+            System.out.println("has a TLD of \"" + theTld + "\".");
+        }
+    } else {
+        System.out.println("is not a valid domain name.");
+    }
 
-                // If the domain name is valid see if there is a core gTLD
-                // or a restricted gTLD
-                if (isDomainValid) {
-                    isCoreGtld = isSpecialGtld(validCoreGtld, theTld);
-                    if (!isCoreGtld) {
-                        // FIXME: Using method isSpecialGtld with the array
-                        //        validRestrictedGtld, set isRestrictedGtld to
-                        //        true or false based on whether the gTLD is a
-                        //        restricted gTLD.
+    // Get the next domain name to process
+    inputName = getString(scnr, PROMPT_DOMAIN_NAME);
 
-                    }
-                }
-            }
-
-            // Display the results
-            System.out.print("\"" + inputName + "\" ");
-            if (isDomainValid) {
-                System.out.print("is a valid domain name and ");
-                if (isCoreGtld) {
-                    System.out.println("has a core gTLD of \"" + theTld + "\".");
-                }
-                else if (isRestrictedGtld) {
-                    System.out.println("has a restricted gTLD of \"" + theTld + "\".");
-                }
-                else {
-                    System.out.println("has a TLD of \"" + theTld + "\".");
-                }
-            }
-            else {
-                System.out.println("is not a valid domain name.");
-            }
-
-            // Get the next domain name to process
-            // FIXME: Use the getString method described above to prompt for
-            //        and input the next candidate domain name.
-            System.out.println(PROMPT_DOMAIN_NAME);
-            inputName = scnr.nextLine();
         }
     }
 }
-
