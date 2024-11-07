@@ -15,8 +15,8 @@ public class CountCharacters {
 
 
         // Count for occurences of inputChar in inputString
-        int i;
-        for (i = 0; i <= inputString.length() - 1; i++) {
+
+        for (int i = 0; i <= inputString.length() - 1; i++) {
             if (inputString.charAt(i) == inputChar) {
                 count++;
             }
